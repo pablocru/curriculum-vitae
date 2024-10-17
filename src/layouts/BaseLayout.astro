@@ -1,0 +1,37 @@
+---
+import "../styles/reset.css";
+import "../styles/layout.css";
+
+const title = "Pablo Cru Delhom - Curriculum Vitae";
+
+const description =
+  "Currículum Vitae estructurado y personalizable desarrollado con Astro " +
+  "que puede imprimirse fácilmente o convertirse a PDF";
+---
+
+<html lang="es">
+  <head>
+    {/* Character encoding */}
+    <meta charset="UTF-8" />
+
+    {/* Consistent user experience across different mobile devices */}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {/* Primary SEO Tags */}
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Pablo Cru Delhom" />
+    <link rel="canonical" href={Astro.url} />
+
+    {/* Credit to Astro */}
+    <meta name="generator" content={Astro.generator} />
+
+    {/* Favicon */}
+    <link rel="icon" href={import.meta.env.BASE_URL + "/favicon.ico"} />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,27 @@
+/* Apply colors only in `screen` mode */
+@media screen {
+  /* Simulate an A4 printable area */
+  :root {
+    background-color: #333;
+  }
+  body {
+    background-color: #fff;
+    width: 794px;
+    height: 1123px;
+  }
+}
+
+/* Specify that this CV should be printed as an A4 */
+@page {
+  size: A4;
+}
+
+body {
+  /* Center main content */
+  margin: 0 auto;
+}
+
+/* Styles applied inside the printable area */
+div#layout {
+  padding: 1.5rem 2.75rem;
+}
