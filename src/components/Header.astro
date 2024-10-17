@@ -1,0 +1,28 @@
+---
+const phoneNumber: string = import.meta.env.PHONE_NUMBER || "*** *** ***";
+
+const contactEmail: string = import.meta.env.CONTACT_EMAIL || "****@****";
+---
+
+<header id="top-header">
+  <h1>Pablo Cru Delhom</h1>
+  <h2>Desarrollador Web Full Stack</h2>
+  <ul id="contact-info" class="two-columns">
+    <li><i class="ti ti-phone"></i><span>{phoneNumber}</span></li>
+    <li>
+      <i class="ti ti-brand-github"></i><a href="https://github.com/pablocru"
+        >github.com/pablocru</a
+      >
+    </li>
+    <li>
+      <i class="ti ti-mail"> </i>{
+        import.meta.env.CONTACT_EMAIL ? (
+          <a href={"mailto:" + contactEmail}>{contactEmail}</a>
+        ) : (
+          <span>{contactEmail}</span>
+        )
+      }
+    </li>
+    <li><i class="ti ti-map-pin"></i><span>Valencia, España</span></li>
+  </ul>
+</header>

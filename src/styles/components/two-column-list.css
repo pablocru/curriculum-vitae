@@ -1,0 +1,17 @@
+/* Display list items in two columns */
+ul.two-columns {
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Each list item fits 50% of the available space */
+ul.two-columns li {
+  flex: 0 0 50%;
+}
+
+/* Separate icons that are placed inside the list items */
+ul.two-columns i {
+  margin-right: 0.5rem;
+}

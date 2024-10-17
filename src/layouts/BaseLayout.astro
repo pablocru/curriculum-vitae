@@ -1,6 +1,7 @@
 ---
 import "../styles/reset.css";
 import "../styles/layout.css";
+import "../styles/components/two-column-list.css";
 
 const title = "Pablo Cru Delhom - Curriculum Vitae";
 
@@ -29,6 +30,13 @@ const description =
 
     {/* Favicon */}
     <link rel="icon" href={import.meta.env.BASE_URL + "/favicon.ico"} />
+
+    {/* Import Tabler Icons from their CDN instead of installing the npm package */}
+    <link
+      rel="stylesheet"
+      href={"https://cdn.jsdelivr.net/npm/@tabler/" +
+        "icons-webfont@latest/dist/tabler-icons.min.css"}
+    />
   </head>
 
   <body>
