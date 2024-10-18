@@ -1,0 +1,31 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"education">;
+}
+
+const {
+  entry: {
+    data: { title, location, startingDate, endingDate },
+    id,
+  },
+} = Astro.props;
+---
+
+<section id={id}>
+  <h3>{title}</h3>
+  <ul class="two-columns">
+    <li>
+      <i class="ti ti-map-pin"></i><span>{location}</span>
+    </li>
+    <li>
+      <i class="ti ti-calendar-month"></i><span
+        ><FormattedDate date={startingDate} /> - {
+          endingDate ? <FormattedDate date={endingDate} /> : "Actualidad"
+        }</span
+      >
+    </li>
+  </ul>
+</section>

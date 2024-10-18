@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+import EducationEntry from "./EducationEntry.astro";
+
+/** Education sorted from most recent to oldest */
+const educationList = (await getCollection("education")).sort(
+  (a, b) => b.data.startingDate.getTime() - a.data.startingDate.getTime(),
+);
+---
+
+<section id="education">
+  <h2>Educación</h2>
+
+  {educationList.map((entry) => <EducationEntry {entry} />)}
+</section>
