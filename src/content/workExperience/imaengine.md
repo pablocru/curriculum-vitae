@@ -1,5 +1,4 @@
 ---
-id: imaengine
 title: Imaengine
 role: Full Stack Developer
 location: Valencia

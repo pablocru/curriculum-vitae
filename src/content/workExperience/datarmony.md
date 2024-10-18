@@ -1,5 +1,4 @@
 ---
-id: datarmony
 title: Datarmony
 role: Becario
 location: Valencia

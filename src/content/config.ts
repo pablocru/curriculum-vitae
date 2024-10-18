@@ -4,7 +4,6 @@ export const collections = {
   workExperience: defineCollection({
     type: "content",
     schema: z.object({
-      id: z.string(),
       title: z.string(),
       role: z.string(),
       location: z.string(),

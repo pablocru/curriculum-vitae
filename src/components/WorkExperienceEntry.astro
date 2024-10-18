@@ -8,15 +8,16 @@ interface Props {
 
 const {
   entry: {
-    data: { id, title, role, location, locationType, startingDate, endingDate },
+    data: { title, role, location, locationType, startingDate, endingDate },
     render,
+    slug,
   },
 } = Astro.props;
 
 const { Content } = await render();
 ---
 
-<section id={id}>
+<section id={slug}>
   <h3>{title} - {role}</h3>
   <ul class="two-columns">
     <li>
