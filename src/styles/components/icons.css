@@ -1,0 +1,30 @@
+/*
+  Icons are purely decorative, so handling them via ::before allows easier control.
+  This way, I can manage all icon-related settings here in the CSS.
+  If I ever switch to a different icon provider, I won’t need to modify the HTML.
+*/
+
+.icon::before {
+  font-family: "tabler-icons";
+  margin-right: 0.3rem;
+}
+
+.icon-github::before {
+  content: "\ec1c";
+}
+
+.icon-location::before {
+  content: "\eae8";
+}
+
+.icon-phone::before {
+  content: "\eb09";
+}
+
+.icon-email::before {
+  content: "\eae5";
+}
+
+.icon-calendar::before {
+  content: "\fd2f";
+}

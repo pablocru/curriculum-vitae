@@ -8,14 +8,14 @@ const contactEmail: string = import.meta.env.CONTACT_EMAIL || "****@****";
   <h1>Pablo Cru Delhom</h1>
   <h2>Desarrollador Web Full Stack</h2>
   <ul id="contact-info" class="two-columns">
-    <li><i class="ti ti-phone"></i><span>{phoneNumber}</span></li>
-    <li>
-      <i class="ti ti-brand-github"></i><a href="https://github.com/pablocru"
-        >github.com/pablocru</a
-      >
+    <li class="icon icon-phone">
+      <span>{phoneNumber}</span>
     </li>
-    <li>
-      <i class="ti ti-mail"> </i>{
+    <li class="icon icon-github">
+      <a href="https://github.com/pablocru">github.com/pablocru</a>
+    </li>
+    <li class="icon icon-email">
+      {
         import.meta.env.CONTACT_EMAIL ? (
           <a href={"mailto:" + contactEmail}>{contactEmail}</a>
         ) : (
@@ -23,6 +23,8 @@ const contactEmail: string = import.meta.env.CONTACT_EMAIL || "****@****";
         )
       }
     </li>
-    <li><i class="ti ti-map-pin"></i><span>Valencia, España</span></li>
+    <li class="icon icon-location">
+      <span>Valencia, España</span>
+    </li>
   </ul>
 </header>
