@@ -1,4 +1,4 @@
-/* Apply colors only in `screen` mode */
+/* Styles applied only in `screen` mode */
 @media screen {
   /* Simulate an A4 printable area */
   :root {
@@ -6,8 +6,9 @@
   }
   body {
     background-color: #fff;
-    width: 794px;
-    height: 1123px;
+
+    /* Center main content */
+    margin: 1rem auto;
   }
 }
 
@@ -17,8 +18,10 @@
 }
 
 body {
-  /* Center main content */
-  margin: 0 auto;
+  /* Create an A4 canvas */
+  --reference-width: 105ch;
+  width: var(--reference-width);
+  height: calc(var(--reference-width) * 1.414); /* A4 (1:1.414) */
 }
 
 /* Styles applied inside the printable area */
