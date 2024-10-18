@@ -1,8 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import EducationList from "../components/EducationList.astro";
 import Header from "../components/Header.astro";
-import WorkExperienceList from "../components/WorkExperienceList.astro";
+import TimelineEntryList from "../components/TimelineEntryList.astro";
 ---
 
 <BaseLayout>
@@ -10,9 +9,12 @@ import WorkExperienceList from "../components/WorkExperienceList.astro";
     <Header />
 
     <main>
-      <WorkExperienceList />
+      <TimelineEntryList
+        collectionKey="workExperience"
+        sectionTitle="Experiencia Laboral"
+      />
 
-      <EducationList />
+      <TimelineEntryList collectionKey="education" sectionTitle="Educación" />
     </main>
   </div>
 </BaseLayout>

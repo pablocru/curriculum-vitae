@@ -1,0 +1,34 @@
+---
+import { getCollection, type CollectionKey } from "astro:content";
+import EducationEntry from "./EducationEntry.astro";
+import WorkExperienceEntry from "./WorkExperienceEntry.astro";
+
+interface Props {
+  collectionKey: CollectionKey;
+  sectionTitle: string;
+}
+
+const { collectionKey, sectionTitle } = Astro.props;
+
+/** Sorted from most recent to oldest */
+const collectionList = (await getCollection(collectionKey)).sort(
+  (a, b) => b.data.startingDate.getTime() - a.data.startingDate.getTime(),
+);
+---
+
+<section id={collectionKey}>
+  <h2>{sectionTitle}</h2>
+
+  {
+    collectionList.map((entry) => {
+      switch (entry.collection) {
+        case "education":
+          return <EducationEntry {entry} />;
+        case "workExperience":
+          return <WorkExperienceEntry {entry} />;
+        default:
+          return false;
+      }
+    })
+  }
+</section>
