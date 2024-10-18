@@ -14,4 +14,7 @@ ul.two-columns li {
 /* Separate icons that are placed inside the list items */
 ul.two-columns i {
   margin-right: 0.5rem;
+
+  /* Ensure predictable alignment and behavior of the icon with surrounding text */
+  display: inline-block;
 }
