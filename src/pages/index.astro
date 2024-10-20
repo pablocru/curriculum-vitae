@@ -7,21 +7,21 @@ import TimelineEntryList from "../components/TimelineEntryList.astro";
 ---
 
 <BaseLayout>
-  <div id="layout">
+  <div class="layout">
     <Header />
 
-    <main>
-      <TimelineEntryList
-        collectionKey={TimelineCollectionKey.WorkExperience}
-        sectionTitle="Experiencia Laboral"
-      />
+    <TimelineEntryList
+      collectionKey={TimelineCollectionKey.WorkExperience}
+      sectionTitle="Experiencia Laboral"
+    />
 
-      <TimelineEntryList
-        collectionKey={TimelineCollectionKey.AcademicBackground}
-        sectionTitle="Formación Académica"
-      />
-    </main>
+    <TimelineEntryList
+      collectionKey={TimelineCollectionKey.AcademicBackground}
+      sectionTitle="Formación Académica"
+    />
+  </div>
 
+  <div class="layout">
     <ProfessionalProfileList />
   </div>
 </BaseLayout>

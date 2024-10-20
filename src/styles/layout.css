@@ -3,9 +3,11 @@
   /* Simulate an A4 printable area */
   :root {
     background-color: #333;
+    color: white;
   }
-  body {
-    background-color: #fff;
+  div.layout {
+    background-color: white;
+    color: black;
 
     /* Center main content */
     margin: 1rem auto;
@@ -17,14 +19,11 @@
   size: A4;
 }
 
-body {
+/* Styles applied inside the printable area */
+div.layout {
   /* Create an A4 canvas */
   --reference-width: 105ch;
   width: var(--reference-width);
   height: calc(var(--reference-width) * 1.414); /* A4 (1:1.414) */
-}
-
-/* Styles applied inside the printable area */
-div#layout {
   padding: 1.5rem 2.75rem;
 }
