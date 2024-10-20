@@ -1,0 +1,15 @@
+order: 4
+title: Competencias
+entries:
+  - Testing, TDD, Vitest
+  - Git, GitHub
+  - CI-CD, Docker, GitHub Actions
+  - Node.js
+  - JavaScript, TypeScript
+  - Vue.js, React.js, Angular.js
+  - AWS, Azure y Firebase
+  - Java y PHP
+  - Bash Scripting
+  - HTML5 y Markdown
+  - CSS y SCSS
+  - MySQL, DynamoDB

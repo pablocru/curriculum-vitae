@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import { UnclassifiedCollectionKey } from "../content/config";
+
+const professionalProfileKey = UnclassifiedCollectionKey.ProfessionalProfile;
+
+const professionalProfileList = (await getCollection(professionalProfileKey)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<aside id={professionalProfileKey}>
+  {
+    professionalProfileList.map(({ id, data: { title, entries } }) => (
+      <section id={id}>
+        <h2>{title}</h2>
+        <ul>
+          {entries.map((entry) => (
+            <li>{entry}</li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</aside>

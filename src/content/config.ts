@@ -5,6 +5,10 @@ export enum TimelineCollectionKey {
   AcademicBackground = "academicBackground",
 }
 
+export enum UnclassifiedCollectionKey {
+  ProfessionalProfile = "professionalProfile",
+}
+
 const baseSchema = z.object({
   title: z.string(),
   location: z.string(),
@@ -25,5 +29,13 @@ export const collections = {
   [TimelineCollectionKey.AcademicBackground]: defineCollection({
     type: "data",
     schema: baseSchema,
+  }),
+  [UnclassifiedCollectionKey.ProfessionalProfile]: defineCollection({
+    type: "data",
+    schema: z.object({
+      order: z.number(),
+      title: z.string(),
+      entries: z.array(z.string()),
+    }),
   }),
 };
