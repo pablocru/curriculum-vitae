@@ -1,12 +1,12 @@
 import { z, defineCollection } from "astro:content";
 
 export enum TimelineCollectionKey {
-  WorkExperience = "workExperience",
-  AcademicBackground = "academicBackground",
+  WorkExperience = "work-experience",
+  AcademicBackground = "academic-background",
 }
 
 export enum UnclassifiedCollectionKey {
-  ProfessionalProfile = "professionalProfile",
+  ProfessionalProfile = "professional-profile",
 }
 
 const baseSchema = z.object({
