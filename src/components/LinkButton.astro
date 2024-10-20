@@ -1,0 +1,64 @@
+---
+export enum LinkButtonTheme {
+  LinkedIn = "linkedIn",
+  Default = "default",
+}
+
+interface LinkButtonThemeDefinition {
+  iconClass?: string;
+  foregroundColor: string;
+  backgroundColor: string;
+}
+
+interface Props {
+  link: string;
+  theme: LinkButtonTheme;
+}
+
+const linkButtonThemeMap: Record<LinkButtonTheme, LinkButtonThemeDefinition> = {
+  [LinkButtonTheme.Default]: {
+    backgroundColor: "#333",
+    foregroundColor: "#f5f5f5",
+  },
+  [LinkButtonTheme.LinkedIn]: {
+    iconClass: "icon icon-linkedin",
+    backgroundColor: "#0a66c2",
+    foregroundColor: "#ffffff",
+  },
+};
+
+const { link, theme } = Astro.props;
+
+const { backgroundColor, foregroundColor, iconClass } = linkButtonThemeMap[theme];
+---
+
+<a href={(URL.canParse(link) ? "" : import.meta.env.BASE_URL) + link} class={iconClass}>
+  <slot />
+</a>
+
+<style define:vars={{ foregroundColor, backgroundColor }}>
+  a:any-link {
+    /* Set a white color regardless of link state */
+    color: var(--foregroundColor);
+  }
+
+  a {
+    /* Ensure link-button maintains its shape and doesn't word wrap on small sizes */
+    display: inline-block;
+
+    /* Leave space between link-button */
+    margin: 0 0.5em;
+
+    /* Use the default text color as a background*/
+    background-color: var(--backgroundColor);
+
+    /* Remove default anchor styles */
+    text-decoration: none;
+
+    /* Add button appearance */
+    padding: 0.5em;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+</style>
