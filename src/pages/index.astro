@@ -1,4 +1,5 @@
 ---
+import { TimelineCollectionKey } from "../content/config";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import TimelineEntryList from "../components/TimelineEntryList.astro";
@@ -10,11 +11,14 @@ import TimelineEntryList from "../components/TimelineEntryList.astro";
 
     <main>
       <TimelineEntryList
-        collectionKey="workExperience"
+        collectionKey={TimelineCollectionKey.WorkExperience}
         sectionTitle="Experiencia Laboral"
       />
 
-      <TimelineEntryList collectionKey="education" sectionTitle="Educación" />
+      <TimelineEntryList
+        collectionKey={TimelineCollectionKey.Education}
+        sectionTitle="Educación"
+      />
     </main>
   </div>
 </BaseLayout>

@@ -1,9 +1,10 @@
 ---
 import FormattedDate from "./FormattedDate.astro";
 import type { CollectionEntry } from "astro:content";
+import type { TimelineCollectionKey } from "../content/config";
 
 interface Props {
-  entry: CollectionEntry<"workExperience">;
+  entry: CollectionEntry<TimelineCollectionKey.WorkExperience>;
 }
 
 const {

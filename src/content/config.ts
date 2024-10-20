@@ -1,5 +1,10 @@
 import { z, defineCollection } from "astro:content";
 
+export enum TimelineCollectionKey {
+  WorkExperience = "workExperience",
+  Education = "education",
+}
+
 const baseSchema = z.object({
   title: z.string(),
   location: z.string(),
@@ -8,7 +13,7 @@ const baseSchema = z.object({
 });
 
 export const collections = {
-  workExperience: defineCollection({
+  [TimelineCollectionKey.WorkExperience]: defineCollection({
     type: "content",
     schema: z
       .object({
@@ -17,7 +22,7 @@ export const collections = {
       })
       .and(baseSchema),
   }),
-  education: defineCollection({
+  [TimelineCollectionKey.Education]: defineCollection({
     type: "data",
     schema: baseSchema,
   }),

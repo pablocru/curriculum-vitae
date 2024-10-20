@@ -1,10 +1,11 @@
 ---
-import { getCollection, type CollectionKey } from "astro:content";
+import { getCollection } from "astro:content";
+import { TimelineCollectionKey } from "../content/config";
 import EducationEntry from "./EducationEntry.astro";
 import WorkExperienceEntry from "./WorkExperienceEntry.astro";
 
 interface Props {
-  collectionKey: CollectionKey;
+  collectionKey: TimelineCollectionKey;
   sectionTitle: string;
 }
 
@@ -22,9 +23,9 @@ const collectionList = (await getCollection(collectionKey)).sort(
   {
     collectionList.map((entry) => {
       switch (entry.collection) {
-        case "education":
+        case TimelineCollectionKey.Education:
           return <EducationEntry {entry} />;
-        case "workExperience":
+        case TimelineCollectionKey.WorkExperience:
           return <WorkExperienceEntry {entry} />;
         default:
           return false;
