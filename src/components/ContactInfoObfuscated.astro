@@ -1,8 +1,9 @@
 ---
+import Alert, { AlertLevel } from "./Alert.astro";
 import LinkButton, { LinkButtonTheme } from "./LinkButton.astro";
 ---
 
-<aside id="contact-info-obfuscated" class="alert alert-warning">
+<Alert id="contact-info-obfuscated" level={AlertLevel.Warning}>
   <p>La información de contacto se ha ocultado por motivos de privacidad.</p>
   <p>
     Si quieres ponerte en contacto conmigo, que te parece si <LinkButton
@@ -10,4 +11,4 @@ import LinkButton, { LinkButtonTheme } from "./LinkButton.astro";
       theme={LinkButtonTheme.LinkedIn}>Conectamos en LinkedIn</LinkButton
     >
   </p>
-</aside>
+</Alert>

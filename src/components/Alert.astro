@@ -1,0 +1,75 @@
+---
+export enum AlertLevel {
+  Info = "info",
+  Success = "success",
+  Warning = "warning",
+  Error = "error",
+}
+
+interface AlertThemeDefinition {
+  backgroundColor: string;
+  borderColor: string;
+}
+
+const alertThemeMap: Record<AlertLevel, AlertThemeDefinition> = {
+  [AlertLevel.Info]: {
+    backgroundColor: "rgba(0, 123, 255, 0.3)",
+    borderColor: "#007bff",
+  },
+  [AlertLevel.Success]: {
+    backgroundColor: "rgba(0, 255, 0, 0.3)",
+    borderColor: "#28a745",
+  },
+  [AlertLevel.Warning]: {
+    backgroundColor: "rgba(255, 255, 0, 0.3)",
+    borderColor: "#ffcc00",
+  },
+
+  [AlertLevel.Error]: {
+    backgroundColor: "rgba(255, 0, 0, 0.3)",
+    borderColor: "#cc0000",
+  },
+};
+
+interface Props {
+  id: string;
+  level: AlertLevel;
+}
+
+const { id, level } = Astro.props;
+
+const { backgroundColor, borderColor } = alertThemeMap[level];
+---
+
+<aside id={`alert-${level}--${id}`}>
+  <slot />
+</aside>
+
+<style define:vars={{ backgroundColor, borderColor }}>
+  aside {
+    /* Wrap content in a rounded box */
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+    /*
+      The content will fit its size
+      but can grow up to a limited number of characters per row
+    */
+    width: fit-content;
+    max-width: 85ch;
+
+    /* Center content and leave space inside the box */
+    margin: 0 auto;
+    padding: 1em;
+  }
+
+  /* Each direct child will have the same margin inside the alert */
+  aside :global(> *) {
+    margin: 0 0 1rem;
+  }
+  aside :global(> *:last-child) {
+    margin-bottom: 0;
+  }
+</style>
