@@ -6,9 +6,20 @@ import LinkButton, { LinkButtonTheme } from "./LinkButton.astro";
 <Alert id="contact-info-obfuscated" level={AlertLevel.Warning}>
   <p>La información de contacto se ha ocultado por motivos de privacidad.</p>
   <p>
-    Si quieres ponerte en contacto conmigo, que te parece si <LinkButton
+    <span>Si quieres ponerte en contacto conmigo, que te parece si</span>
+    <LinkButton
       link="https://www.linkedin.com/in/pablocrudelhom/"
       theme={LinkButtonTheme.LinkedIn}>Conectamos en LinkedIn</LinkButton
     >
   </p>
 </Alert>
+
+<style>
+  /* Control the gap between the content and the Link Button */
+  p:last-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5em;
+  }
+</style>
