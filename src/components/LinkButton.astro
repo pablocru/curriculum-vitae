@@ -10,11 +10,6 @@ interface LinkButtonThemeDefinition {
   backgroundColor: string;
 }
 
-interface Props {
-  link: string;
-  theme: LinkButtonTheme;
-}
-
 const linkButtonThemeMap: Record<LinkButtonTheme, LinkButtonThemeDefinition> = {
   [LinkButtonTheme.Default]: {
     backgroundColor: "#333",
@@ -26,6 +21,11 @@ const linkButtonThemeMap: Record<LinkButtonTheme, LinkButtonThemeDefinition> = {
     foregroundColor: "#ffffff",
   },
 };
+
+interface Props {
+  link: string;
+  theme: LinkButtonTheme;
+}
 
 const { link, theme } = Astro.props;
 
