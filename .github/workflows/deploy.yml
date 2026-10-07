@@ -37,7 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install pnpm and Node.js
+      - name: Install pnpm, Node.js and dependencies
         uses: pnpm/setup@v3
         with:
           require-lockfile: true
