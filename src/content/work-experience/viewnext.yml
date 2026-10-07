@@ -1,0 +1,42 @@
+title: VIEWNEXT
+role: "Data Engineer & Full Stack Developer"
+location: Valencia
+locationType: Remoto
+startingDate: 2024-11-18
+endingDate: null
+description: >-
+  Desarrollo y operación de aplicaciones orientadas a la consolidación y el
+  análisis de datos en la nube para una gran empresa del sector energético.
+  Trabajo en un entorno colaborativo y multidisciplinar, adaptando las
+  soluciones a las necesidades del cliente y contribuyendo a mejorar la gestión
+  de datos y la toma de decisiones.
+highlights:
+  - Desarrollo de aplicaciones con Vue 3 y TypeScript, integradas con servicios backend en Python y .NET.
+  - Mantenimiento de Dockerfiles, manifiestos de Kubernetes y pipelines de CI/CD en Azure DevOps para construir imágenes en Azure Container Registry (ACR) y desplegar aplicaciones en Azure Kubernetes Service (AKS).
+  - Estandarización de pruebas End-to-End y ejecución de tests antes de construir las imágenes Docker.
+  - Diagnóstico de incidencias en frontend, APIs de Python y .NET, bases de datos SQL Server y Kubernetes.
+  - Mejora de la observabilidad mediante Application Insights, Log Analytics y automatización de la detección de errores.
+  - Optimización de procesos de datos mediante una estrategia bulk con KQL que redujo el procesamiento de aproximadamente 20.500 usuarios de 4-5 horas a alrededor de un minuto.
+  - Gestión segura de secretos y configuraciones con Azure Key Vault y App Configuration.
+  - Tutoría y onboarding de perfiles junior, becarios y nuevas incorporaciones.
+technologies:
+  - Azure
+  - Azure DevOps
+  - ACR
+  - AKS
+  - Kubernetes
+  - Docker
+  - Vue 3
+  - TypeScript
+  - Python
+  - ".NET"
+  - SQL Server
+  - KQL
+  - Databricks
+  - Power BI
+  - Azure Key Vault
+  - App Configuration
+  - Application Insights
+  - Log Analytics
+  - OpenAPI
+  - Swagger

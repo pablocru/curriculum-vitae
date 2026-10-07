@@ -21,9 +21,9 @@
 
 /* Styles applied inside the printable area */
 div.layout {
-  /* Create an A4 canvas */
+  /* Create an A4 canvas that can grow when the content overflows */
   --reference-width: 105ch;
   width: var(--reference-width);
-  height: calc(var(--reference-width) * 1.414); /* A4 (1:1.414) */
+  min-height: calc(var(--reference-width) * 1.414); /* A4 (1:1.414) */
   padding: 1.5rem 2.75rem;
 }

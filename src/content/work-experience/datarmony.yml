@@ -1,0 +1,30 @@
+title: Datarmony
+role: Becario
+location: Valencia
+locationType: Remoto
+startingDate: 2024-03-04
+endingDate: 2024-05-27
+description: >-
+  Participación en proyectos de analítica digital para tiendas online de
+  sectores como turismo y farmacia, recopilando y transformando datos sobre el
+  comportamiento de los usuarios para evaluar acciones de marketing y detectar
+  oportunidades de optimización en el funnel de conversión.
+highlights:
+  - Implementación y optimización de la captura de eventos con Google Tag Manager, aplicando conocimientos de DOM y JavaScript.
+  - Tratamiento de los datos para su posterior análisis en Google Analytics, BigQuery y dashboards de Google Looker Studio.
+  - Propuesta y prueba de Umami Analytics como alternativa cookieless, mediante una instalación autohospedada y conectores personalizados para Google Tag Manager y Google Looker Studio.
+  - Desarrollo con Streamlit de un dashboard interactivo para presentar los datos recopilados por Umami, utilizado también como proyecto final de DAW.
+  - Investigación de posibles aplicaciones de Vertex AI en Google Cloud Platform.
+technologies:
+  - Google Cloud Platform
+  - Google Tag Manager
+  - Google Analytics
+  - BigQuery
+  - Google Looker Studio
+  - Google Apps Script
+  - Umami Analytics
+  - Streamlit
+  - Python
+  - JavaScript
+  - HTML
+  - DOM
