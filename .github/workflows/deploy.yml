@@ -46,9 +46,6 @@ jobs:
       - name: Build Project
         run: pnpm build
 
-      - name: Bypass Jekyll processing
-        run: touch "dist/.nojekyll"
-
       - name: Setup Pages
         uses: actions/configure-pages@v6
 
