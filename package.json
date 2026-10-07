@@ -27,8 +27,8 @@
     "quality:fix": "pnpm run \"/^quality:fix:/\" && pnpm type:check"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.4",
-    "astro": "4.16.18",
+    "@astrojs/check": "0.9.10",
+    "astro": "^5.18.2",
     "typescript": "5.6.3"
   },
   "devDependencies": {

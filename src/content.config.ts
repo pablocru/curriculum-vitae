@@ -1,4 +1,5 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 export enum TimelineCollectionKey {
   WorkExperience = "work-experience",
@@ -18,7 +19,7 @@ const baseSchema = z.object({
 
 export const collections = {
   [TimelineCollectionKey.WorkExperience]: defineCollection({
-    type: "content",
+    loader: glob({ pattern: "**/*.md", base: "./src/content/work-experience" }),
     schema: z
       .object({
         role: z.string(),
@@ -27,11 +28,17 @@ export const collections = {
       .and(baseSchema),
   }),
   [TimelineCollectionKey.AcademicBackground]: defineCollection({
-    type: "data",
+    loader: glob({
+      pattern: "**/*.yml",
+      base: "./src/content/academic-background",
+    }),
     schema: baseSchema,
   }),
   [UnclassifiedCollectionKey.ProfessionalProfile]: defineCollection({
-    type: "data",
+    loader: glob({
+      pattern: "**/*.yml",
+      base: "./src/content/professional-profile",
+    }),
     schema: z.object({
       order: z.number(),
       title: z.string(),
