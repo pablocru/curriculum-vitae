@@ -46,30 +46,30 @@ const { backgroundColor, borderColor } = alertThemeMap[level];
 </aside>
 
 <style define:vars={{ backgroundColor, borderColor }}>
-  aside {
-    /* Wrap content in a rounded box */
-    background-color: var(--backgroundColor);
-    border: 1px solid var(--borderColor);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+aside {
+  /* Wrap content in a rounded box */
+  background-color: var(--backgroundColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 
-    /*
+  /*
       The content will fit its size
       but can grow up to a limited number of characters per row
     */
-    width: fit-content;
-    max-width: 85ch;
+  width: fit-content;
+  max-width: 85ch;
 
-    /* Center content and leave space inside the box */
-    margin: 0 auto;
-    padding: 1em;
-  }
+  /* Center content and leave space inside the box */
+  margin: 0 auto;
+  padding: 1em;
+}
 
-  /* Each direct child will have the same margin inside the alert */
-  aside :global(> *) {
-    margin: 0 0 1rem;
-  }
-  aside :global(> *:last-child) {
-    margin-bottom: 0;
-  }
+/* Each direct child will have the same margin inside the alert */
+aside > :global(*) {
+  margin: 0 0 1rem;
+}
+aside > :global(*:last-child) {
+  margin-bottom: 0;
+}
 </style>

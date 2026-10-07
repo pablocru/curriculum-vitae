@@ -2,4 +2,5 @@ saveExact: true
 # pnpm 10+ blocks dependency build scripts by default; allow the ones Astro needs
 allowBuilds:
   esbuild: true
+  lefthook: true
   sharp: true

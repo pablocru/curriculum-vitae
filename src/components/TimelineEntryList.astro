@@ -20,16 +20,14 @@ const collectionList = (await getCollection(collectionKey)).sort(
 <section id={collectionKey}>
   <h2>{sectionTitle}</h2>
 
-  {
-    collectionList.map((entry) => {
-      switch (entry.collection) {
-        case TimelineCollectionKey.AcademicBackground:
-          return <AcademicBackgroundEntry {entry} />;
-        case TimelineCollectionKey.WorkExperience:
-          return <WorkExperienceEntry {entry} />;
-        default:
-          return false;
-      }
-    })
-  }
+  {collectionList.map((entry) => {
+    switch (entry.collection) {
+      case TimelineCollectionKey.AcademicBackground:
+        return <AcademicBackgroundEntry {entry} />;
+      case TimelineCollectionKey.WorkExperience:
+        return <WorkExperienceEntry {entry} />;
+      default:
+        return false;
+    }
+  })}
 </section>

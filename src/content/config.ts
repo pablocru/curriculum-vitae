@@ -1,4 +1,4 @@
-import { z, defineCollection } from "astro:content";
+import { defineCollection, z } from "astro:content";
 
 export enum TimelineCollectionKey {
   WorkExperience = "work-experience",

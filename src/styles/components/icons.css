@@ -5,6 +5,7 @@
 */
 
 .icon::before {
+  /* biome-ignore lint/a11y/useGenericFontNames: decorative icon font, no generic fallback applies */
   font-family: "tabler-icons";
   margin-right: 0.3rem;
 }

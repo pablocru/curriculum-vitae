@@ -9,17 +9,18 @@ import LinkButton, { LinkButtonTheme } from "./LinkButton.astro";
     <span>Si quieres ponerte en contacto conmigo, que te parece si</span>
     <LinkButton
       link="https://www.linkedin.com/in/pablocrudelhom/"
-      theme={LinkButtonTheme.LinkedIn}>Conectamos en LinkedIn</LinkButton
+      theme={LinkButtonTheme.LinkedIn}
+      >Conectamos en LinkedIn</LinkButton
     >
   </p>
 </Alert>
 
 <style>
-  /* Control the gap between the content and the Link Button */
-  p:last-of-type {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5em;
-  }
+/* Control the gap between the content and the Link Button */
+p:last-of-type {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+}
 </style>
