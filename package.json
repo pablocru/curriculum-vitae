@@ -27,9 +27,9 @@
     "quality:fix": "pnpm run \"/^quality:fix:/\" && pnpm type:check"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.4",
-    "astro": "4.16.18",
-    "typescript": "5.6.3"
+    "@astrojs/check": "0.9.10",
+    "astro": "7.3.5",
+    "typescript": "6.0.3"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.15",

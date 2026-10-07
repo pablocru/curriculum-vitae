@@ -1,24 +1,22 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import type { TimelineCollectionKey } from "../content/config";
+import { type CollectionEntry, render } from "astro:content";
+import type { TimelineCollectionKey } from "../content.config";
 import FormattedDate from "./FormattedDate.astro";
 
 interface Props {
   entry: CollectionEntry<TimelineCollectionKey.WorkExperience>;
 }
 
+const { entry } = Astro.props;
 const {
-  entry: {
-    data: { title, role, location, locationType, startingDate, endingDate },
-    render,
-    slug,
-  },
-} = Astro.props;
+  data: { title, role, location, locationType, startingDate, endingDate },
+  id,
+} = entry;
 
-const { Content } = await render();
+const { Content } = await render(entry);
 ---
 
-<section id={slug}>
+<section id={id}>
   <h3>{title} - {role}</h3>
   <ul class="two-columns">
     <li class="icon icon-location">
