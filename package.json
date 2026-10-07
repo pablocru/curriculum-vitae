@@ -16,7 +16,6 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prepare": "lefthook install",
     "type:check": "astro check",
     "quality:check:biome": "biome ci .",
     "quality:check:prettier": "prettier --check \"**/*.{yml,yaml}\"",
