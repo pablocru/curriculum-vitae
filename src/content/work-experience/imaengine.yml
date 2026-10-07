@@ -1,0 +1,29 @@
+title: Imaengine
+role: Full Stack Developer
+location: Valencia
+locationType: Remoto
+startingDate: 2024-06-10
+endingDate: 2024-11-18
+description: >-
+  Desarrollo de una plataforma IIoT para recopilar y visualizar información
+  sobre la calidad del agua, modernizando una solución existente construida con
+  Vue 2 y una ETL en Python.
+highlights:
+  - Migración de una SPA de Vue 2 a Vue 3 y TypeScript para visualizar datos IoT; el build generaba los archivos estáticos desplegados en Amazon S3 y distribuidos mediante Amazon CloudFront.
+  - Participación en la migración de la ETL de Python a TypeScript sobre AWS Lambda para recopilar y procesar los datos.
+  - Definición y despliegue de la infraestructura mediante AWS Cloud Development Kit (CDK) para infraestructura como código (IaC).
+  - Propuesta y administración del monorepo, con estandarización de procesos, tipos y helpers compartidos entre frontend y backend.
+  - Entrega de una solución validada por dirección y preparada para su paso a producción.
+technologies:
+  - AWS
+  - AWS CDK
+  - AWS Lambda
+  - Amazon S3
+  - Amazon CloudFront
+  - Vue 3
+  - TypeScript
+  - Node.js
+  - Python
+  - Git
+  - IIoT
+  - IaC

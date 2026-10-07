@@ -20,11 +20,17 @@ const baseSchema = z.object({
 
 export const collections = {
   [TimelineCollectionKey.WorkExperience]: defineCollection({
-    loader: glob({ pattern: "**/*.md", base: "./src/content/work-experience" }),
+    loader: glob({
+      pattern: "**/*.yml",
+      base: "./src/content/work-experience",
+    }),
     schema: z
       .object({
         role: z.string(),
         locationType: z.string(),
+        description: z.string(),
+        highlights: z.array(z.string()),
+        technologies: z.array(z.string()),
       })
       .and(baseSchema),
   }),

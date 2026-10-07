@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import type { TimelineCollectionKey } from "../content.config";
 import FormattedDate from "./FormattedDate.astro";
 
@@ -9,11 +9,19 @@ interface Props {
 
 const { entry } = Astro.props;
 const {
-  data: { title, role, location, locationType, startingDate, endingDate },
+  data: {
+    title,
+    role,
+    location,
+    locationType,
+    startingDate,
+    endingDate,
+    description,
+    highlights,
+    technologies,
+  },
   id,
 } = entry;
-
-const { Content } = await render(entry);
 ---
 
 <section id={id}>
@@ -27,5 +35,11 @@ const { Content } = await render(entry);
       - {endingDate ? <FormattedDate date={endingDate} /> : "Actualidad"}
     </li>
   </ul>
-  <Content />
+  <p>{description}</p>
+  <ul>
+    {highlights.map((highlight) => <li>{highlight}</li>)}
+  </ul>
+  <p class="technologies">
+    <strong>Tecnologías:</strong> {technologies.join(", ")}
+  </p>
 </section>
