@@ -1,12 +1,12 @@
 {
   "recommendations": [
     "astro-build.astro-vscode",
-    "dbaeumer.vscode-eslint",
+    "biomejs.biome",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "formulahendry.auto-rename-tag",
     "htmlhint.vscode-htmlhint",
     "streetsidesoftware.code-spell-checker-spanish",
-    "streetsidesoftware.code-spell-checker",
-  ],
+    "streetsidesoftware.code-spell-checker"
+  ]
 }

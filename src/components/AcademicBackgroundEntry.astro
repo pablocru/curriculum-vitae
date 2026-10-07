@@ -1,7 +1,7 @@
 ---
-import FormattedDate from "./FormattedDate.astro";
 import type { CollectionEntry } from "astro:content";
 import type { TimelineCollectionKey } from "../content/config";
+import FormattedDate from "./FormattedDate.astro";
 
 interface Props {
   entry: CollectionEntry<TimelineCollectionKey.AcademicBackground>;
@@ -22,9 +22,8 @@ const {
       <span>{location}</span>
     </li>
     <li class="icon icon-calendar">
-      <FormattedDate date={startingDate} /> - {
-        endingDate ? <FormattedDate date={endingDate} /> : "Actualidad"
-      }
+      <FormattedDate date={startingDate} />
+      - {endingDate ? <FormattedDate date={endingDate} /> : "Actualidad"}
     </li>
   </ul>
 </section>

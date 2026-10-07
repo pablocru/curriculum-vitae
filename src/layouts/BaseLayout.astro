@@ -14,30 +14,30 @@ const description =
 <html lang="es">
   <head>
     {/* Character encoding */}
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
 
     {/* Consistent user experience across different mobile devices */}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {/* Primary SEO Tags */}
     <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
-    <meta name="author" content="Pablo Cru Delhom" />
-    <link rel="canonical" href={Astro.url} />
+    <meta name="title" content={title}>
+    <meta name="description" content={description}>
+    <meta name="author" content="Pablo Cru Delhom">
+    <link rel="canonical" href={Astro.url}>
 
     {/* Credit to Astro */}
-    <meta name="generator" content={Astro.generator} />
+    <meta name="generator" content={Astro.generator}>
 
     {/* Favicon */}
-    <link rel="icon" href={import.meta.env.BASE_URL + "/favicon.ico"} />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.ico`}>
 
     {/* Import Tabler Icons from their CDN instead of installing the npm package */}
     <link
       rel="stylesheet"
       href={"https://cdn.jsdelivr.net/npm/@tabler/" +
         "icons-webfont@latest/dist/tabler-icons.min.css"}
-    />
+    >
   </head>
 
   <body>

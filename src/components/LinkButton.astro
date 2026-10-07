@@ -29,33 +29,38 @@ interface Props {
 
 const { link, theme } = Astro.props;
 
-const { backgroundColor, foregroundColor, iconClass } = linkButtonThemeMap[theme];
+const { backgroundColor, foregroundColor, iconClass } =
+  linkButtonThemeMap[theme];
 ---
 
-<a href={(URL.canParse(link) ? "" : import.meta.env.BASE_URL) + link} class={iconClass}>
+<!-- biome-ignore lint/a11y/useAnchorContent: content is provided via <slot /> -->
+<a
+  href={(URL.canParse(link) ? "" : import.meta.env.BASE_URL) + link}
+  class={iconClass}
+>
   <slot />
 </a>
 
 <style define:vars={{ foregroundColor, backgroundColor }}>
-  a:any-link {
-    /* Set a white color regardless of link state */
-    color: var(--foregroundColor);
-  }
+a:any-link {
+  /* Set a white color regardless of link state */
+  color: var(--foregroundColor);
+}
 
-  a {
-    /* Ensure link-button maintains its shape and doesn't word wrap on small sizes */
-    display: inline-block;
+a {
+  /* Ensure link-button maintains its shape and doesn't word wrap on small sizes */
+  display: inline-block;
 
-    /* Use the default text color as a background*/
-    background-color: var(--backgroundColor);
+  /* Use the default text color as a background*/
+  background-color: var(--backgroundColor);
 
-    /* Remove default anchor styles */
-    text-decoration: none;
+  /* Remove default anchor styles */
+  text-decoration: none;
 
-    /* Add button appearance */
-    padding: 0.5em;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  }
+  /* Add button appearance */
+  padding: 0.5em;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
 </style>

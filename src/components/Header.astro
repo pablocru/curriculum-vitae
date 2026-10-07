@@ -15,13 +15,11 @@ const contactEmail: string = import.meta.env.CONTACT_EMAIL || "****@****";
       <a href="https://github.com/pablocru">github.com/pablocru</a>
     </li>
     <li class="icon icon-email">
-      {
-        import.meta.env.CONTACT_EMAIL ? (
-          <a href={"mailto:" + contactEmail}>{contactEmail}</a>
-        ) : (
-          <span>{contactEmail}</span>
-        )
-      }
+      {import.meta.env.CONTACT_EMAIL ? (
+        <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+      ) : (
+        <span>{contactEmail}</span>
+      )}
     </li>
     <li class="icon icon-location">
       <span>Valencia, España</span>
