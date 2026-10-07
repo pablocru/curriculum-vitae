@@ -1,6 +1,6 @@
 [global]
 editorconfig = true
-exclude = ["LICENSE.md"]
+exclude = ["LICENSE"]
 
 [MD013]
 code_blocks = false
