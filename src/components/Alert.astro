@@ -32,16 +32,15 @@ const alertThemeMap: Record<AlertLevel, AlertThemeDefinition> = {
 };
 
 interface Props {
-  id: string;
   level: AlertLevel;
 }
 
-const { id, level } = Astro.props;
+const { level } = Astro.props;
 
 const { backgroundColor, borderColor } = alertThemeMap[level];
 ---
 
-<aside id={`alert-${level}--${id}`}>
+<aside class={`alert-${level}`}>
   <slot />
 </aside>
 
