@@ -34,6 +34,11 @@
     color: black;
   }
 
+  /* Screen-only elements omitted from the printed CV */
+  .contact-info-notice {
+    display: none;
+  }
+
   /* Keep entries and profile sections from splitting across sheets */
   #work-experience > section,
   #academic-background > section,

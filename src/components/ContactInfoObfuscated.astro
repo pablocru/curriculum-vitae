@@ -3,28 +3,19 @@ import Alert, { AlertLevel } from "./Alert.astro";
 import LinkButton, { LinkButtonTheme } from "./LinkButton.astro";
 ---
 
-<div class="contact-info-notice">
-  <Alert level={AlertLevel.Warning}>
-    <p>La información de contacto se ha ocultado por motivos de privacidad.</p>
-    <p>
-      <span>Si quieres ponerte en contacto conmigo, que te parece si</span>
-      <LinkButton
-        link="https://www.linkedin.com/in/pablocrudelhom/"
-        theme={LinkButtonTheme.LinkedIn}
-        >Conectamos en LinkedIn</LinkButton
-      >
-    </p>
-  </Alert>
-</div>
+<Alert level={AlertLevel.Warning} class="contact-info-notice">
+  <p>La información de contacto se ha ocultado por motivos de privacidad.</p>
+  <p>
+    <span>Si quieres ponerte en contacto conmigo, que te parece si</span>
+    <LinkButton
+      link="https://www.linkedin.com/in/pablocrudelhom/"
+      theme={LinkButtonTheme.LinkedIn}
+      >Conectamos en LinkedIn</LinkButton
+    >
+  </p>
+</Alert>
 
 <style>
-/* The notice is screen-only; the printed CV omits it */
-@media print {
-  .contact-info-notice {
-    display: none;
-  }
-}
-
 /* Control the gap between the content and the Link Button */
 p:last-of-type {
   display: flex;
