@@ -7,22 +7,53 @@ const contactEmail: string = import.meta.env.CONTACT_EMAIL || "****@****";
 <header id="top-header">
   <h1>Pablo Cru Delhom</h1>
   <h2>Desarrollador Web Full Stack</h2>
-  <ul id="contact-info" class="two-columns">
-    <li class="icon icon-phone">
-      <span>{phoneNumber}</span>
-    </li>
-    <li class="icon icon-github">
-      <a href="https://github.com/pablocru">github.com/pablocru</a>
-    </li>
-    <li class="icon icon-email">
-      {import.meta.env.CONTACT_EMAIL ? (
-        <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-      ) : (
-        <span>{contactEmail}</span>
-      )}
-    </li>
-    <li class="icon icon-location">
-      <span>Valencia, España</span>
-    </li>
-  </ul>
+  <div class="header-details">
+    <ul id="contact-info">
+      <li class="icon icon-phone">
+        <span>{phoneNumber}</span>
+      </li>
+      <li class="icon icon-email">
+        {import.meta.env.CONTACT_EMAIL ? (
+          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+        ) : (
+          <span>{contactEmail}</span>
+        )}
+      </li>
+      <li class="icon icon-location">
+        <span>Valencia, España</span>
+      </li>
+    </ul>
+    <ul id="social-links">
+      <li class="icon icon-github">
+        <a href="https://github.com/pablocru">github.com/pablocru</a>
+      </li>
+      <li class="icon icon-linkedin">
+        <a href="https://www.linkedin.com/in/pablocrudelhom/">
+          linkedin.com/in/pablocrudelhom
+        </a>
+      </li>
+    </ul>
+  </div>
 </header>
+
+<style>
+/* Two columns: contact details on one side, social links on the other */
+.header-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 2rem;
+}
+.header-details ul {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+/* Stack both columns on narrow screens */
+@media screen and (max-width: 48rem) {
+  .header-details {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+</style>
