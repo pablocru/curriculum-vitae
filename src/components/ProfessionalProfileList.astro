@@ -10,8 +10,8 @@ const professionalProfileList = (
 ---
 
 <aside id={professionalProfileKey}>
-  {professionalProfileList.map(({ id, data: { title, entries } }) => (
-    <section id={id}>
+  {professionalProfileList.map(({ data: { title, entries } }) => (
+    <section>
       <h2>{title}</h2>
       <ul>
         {entries.map((entry) => (

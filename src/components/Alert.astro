@@ -6,57 +6,27 @@ export enum AlertLevel {
   Error = "error",
 }
 
-interface AlertThemeDefinition {
-  backgroundColor: string;
-  borderColor: string;
-}
-
-const alertThemeMap: Record<AlertLevel, AlertThemeDefinition> = {
-  [AlertLevel.Info]: {
-    backgroundColor: "rgba(0, 123, 255, 0.3)",
-    borderColor: "#007bff",
-  },
-  [AlertLevel.Success]: {
-    backgroundColor: "rgba(0, 255, 0, 0.3)",
-    borderColor: "#28a745",
-  },
-  [AlertLevel.Warning]: {
-    backgroundColor: "rgba(255, 255, 0, 0.3)",
-    borderColor: "#ffcc00",
-  },
-
-  [AlertLevel.Error]: {
-    backgroundColor: "rgba(255, 0, 0, 0.3)",
-    borderColor: "#cc0000",
-  },
-};
-
 interface Props {
-  id: string;
   level: AlertLevel;
+  class?: string;
 }
 
-const { id, level } = Astro.props;
-
-const { backgroundColor, borderColor } = alertThemeMap[level];
+const { level, class: className } = Astro.props;
 ---
 
-<aside id={`alert-${level}--${id}`}>
+<aside class:list={["alert", className]} data-level={level}>
   <slot />
 </aside>
 
-<style define:vars={{ backgroundColor, borderColor }}>
-aside {
-  /* Wrap content in a rounded box */
-  background-color: var(--backgroundColor);
-  border: 1px solid var(--borderColor);
+<style>
+.alert {
+  /* Rounded box; the level supplies the colors, with a neutral fallback */
+  background-color: var(--background-color, rgba(0, 0, 0, 0.06));
+  border: 1px solid var(--border-color, #999);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 
-  /*
-      The content will fit its size
-      but can grow up to a limited number of characters per row
-    */
+  /* Shrink to the content, but cap the line length */
   width: fit-content;
   max-width: 85ch;
 
@@ -65,11 +35,29 @@ aside {
   padding: 1em;
 }
 
+/* Each level only sets the color variables the box applies */
+.alert[data-level="info"] {
+  --background-color: rgba(0, 123, 255, 0.3);
+  --border-color: #007bff;
+}
+.alert[data-level="success"] {
+  --background-color: rgba(0, 255, 0, 0.3);
+  --border-color: #28a745;
+}
+.alert[data-level="warning"] {
+  --background-color: rgba(255, 255, 0, 0.3);
+  --border-color: #ffcc00;
+}
+.alert[data-level="error"] {
+  --background-color: rgba(255, 0, 0, 0.3);
+  --border-color: #cc0000;
+}
+
 /* Each direct child will have the same margin inside the alert */
-aside > :global(*) {
+.alert > :global(*) {
   margin: 0 0 1rem;
 }
-aside > :global(*:last-child) {
+.alert > :global(*:last-child) {
   margin-bottom: 0;
 }
 </style>

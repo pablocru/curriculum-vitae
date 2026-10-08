@@ -10,12 +10,11 @@ interface Props {
 const {
   entry: {
     data: { title, location, startingDate, endingDate },
-    id,
   },
 } = Astro.props;
 ---
 
-<section id={id}>
+<section>
   <h3>{title}</h3>
   <ul class="two-columns">
     <li class="icon icon-location">
