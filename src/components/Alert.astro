@@ -14,15 +14,15 @@ interface Props {
 const { level, class: className } = Astro.props;
 ---
 
-<aside class:list={[`alert-${level}`, className]}>
+<aside class:list={["alert", className]} data-level={level}>
   <slot />
 </aside>
 
 <style>
-aside {
-  /* Wrap content in a rounded box; colors come from the level class */
-  background-color: var(--background-color);
-  border: 1px solid var(--border-color);
+.alert {
+  /* Rounded box; the level supplies the colors, with a neutral fallback */
+  background-color: var(--background-color, rgba(0, 0, 0, 0.06));
+  border: 1px solid var(--border-color, #999);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 
@@ -36,28 +36,28 @@ aside {
 }
 
 /* Each level only sets the color variables the box applies */
-.alert-info {
+.alert[data-level="info"] {
   --background-color: rgba(0, 123, 255, 0.3);
   --border-color: #007bff;
 }
-.alert-success {
+.alert[data-level="success"] {
   --background-color: rgba(0, 255, 0, 0.3);
   --border-color: #28a745;
 }
-.alert-warning {
+.alert[data-level="warning"] {
   --background-color: rgba(255, 255, 0, 0.3);
   --border-color: #ffcc00;
 }
-.alert-error {
+.alert[data-level="error"] {
   --background-color: rgba(255, 0, 0, 0.3);
   --border-color: #cc0000;
 }
 
 /* Each direct child will have the same margin inside the alert */
-aside > :global(*) {
+.alert > :global(*) {
   margin: 0 0 1rem;
 }
-aside > :global(*:last-child) {
+.alert > :global(*:last-child) {
   margin-bottom: 0;
 }
 </style>
