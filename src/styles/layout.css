@@ -9,15 +9,15 @@
 /* Screen: white CV sheet centered on a gray backdrop */
 @media screen {
   :root {
-    background-color: #333;
-    color: white;
+    background-color: var(--color-backdrop);
+    color: var(--color-backdrop-text);
   }
 
   .cv {
     width: 100%;
     margin-block: 1rem;
-    background-color: white;
-    color: black;
+    background-color: var(--color-surface);
+    color: var(--color-text);
   }
 }
 
@@ -31,7 +31,7 @@
   .cv {
     max-width: none;
     padding: 0;
-    color: black;
+    color: var(--color-text);
   }
 
   /* Screen-only elements omitted from the printed CV */
