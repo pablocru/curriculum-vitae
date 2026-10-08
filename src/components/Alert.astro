@@ -20,11 +20,13 @@ const { level, class: className } = Astro.props;
 
 <style>
 .alert {
-  /* Rounded box; the level supplies the colors, with a neutral fallback */
-  background-color: var(--background-color, rgba(0, 0, 0, 0.06));
-  border: 1px solid var(--border-color, #999);
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  /* Default to the neutral palette; each level overrides the two aliases */
+  --background-color: var(--color-alert-neutral-background);
+  --border-color: var(--color-alert-neutral-border);
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 
   /* Shrink to the content, but cap the line length */
   width: fit-content;
@@ -37,20 +39,20 @@ const { level, class: className } = Astro.props;
 
 /* Each level only sets the color variables the box applies */
 .alert[data-level="info"] {
-  --background-color: rgba(0, 123, 255, 0.3);
-  --border-color: #007bff;
+  --background-color: var(--color-alert-info-background);
+  --border-color: var(--color-alert-info-border);
 }
 .alert[data-level="success"] {
-  --background-color: rgba(0, 255, 0, 0.3);
-  --border-color: #28a745;
+  --background-color: var(--color-alert-success-background);
+  --border-color: var(--color-alert-success-border);
 }
 .alert[data-level="warning"] {
-  --background-color: rgba(255, 255, 0, 0.3);
-  --border-color: #ffcc00;
+  --background-color: var(--color-alert-warning-background);
+  --border-color: var(--color-alert-warning-border);
 }
 .alert[data-level="error"] {
-  --background-color: rgba(255, 0, 0, 0.3);
-  --border-color: #cc0000;
+  --background-color: var(--color-alert-error-background);
+  --border-color: var(--color-alert-error-border);
 }
 
 /* Each direct child will have the same margin inside the alert */
