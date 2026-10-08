@@ -4,24 +4,6 @@ export enum LinkButtonTheme {
   Default = "default",
 }
 
-interface LinkButtonThemeDefinition {
-  iconClass?: string;
-  foregroundColor: string;
-  backgroundColor: string;
-}
-
-const linkButtonThemeMap: Record<LinkButtonTheme, LinkButtonThemeDefinition> = {
-  [LinkButtonTheme.Default]: {
-    backgroundColor: "var(--color-link-default-background)",
-    foregroundColor: "var(--color-link-default-foreground)",
-  },
-  [LinkButtonTheme.LinkedIn]: {
-    iconClass: "icon icon-linkedin",
-    backgroundColor: "var(--color-link-linkedin-background)",
-    foregroundColor: "var(--color-link-linkedin-foreground)",
-  },
-};
-
 interface Props {
   link: string;
   theme: LinkButtonTheme;
@@ -29,38 +11,45 @@ interface Props {
 
 const { link, theme } = Astro.props;
 
-const { backgroundColor, foregroundColor, iconClass } =
-  linkButtonThemeMap[theme];
+// The LinkedIn theme is the only one with an icon
+const iconClass =
+  theme === LinkButtonTheme.LinkedIn ? "icon icon-linkedin" : undefined;
 ---
 
 <!-- biome-ignore lint/a11y/useAnchorContent: content is provided via <slot /> -->
 <a
   href={(URL.canParse(link) ? "" : import.meta.env.BASE_URL) + link}
-  class={iconClass}
+  class:list={["link-button", iconClass]}
+  data-theme={theme}
 >
   <slot />
 </a>
 
-<style define:vars={{ foregroundColor, backgroundColor }}>
-a:any-link {
-  /* Set a white color regardless of link state */
-  color: var(--foregroundColor);
-}
+<style>
+.link-button {
+  /* Default theme colors; other themes override the two aliases */
+  --background-color: var(--color-link-default-background);
+  --foreground-color: var(--color-link-default-foreground);
 
-a {
-  /* Ensure link-button maintains its shape and doesn't word wrap on small sizes */
+  /* Keep the shape and avoid wrapping on small sizes */
   display: inline-block;
-
-  /* Use the default text color as a background*/
-  background-color: var(--backgroundColor);
-
-  /* Remove default anchor styles */
+  background-color: var(--background-color);
   text-decoration: none;
 
-  /* Add button appearance */
+  /* Button appearance */
   padding: 0.5em;
   border: 1px solid transparent;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+}
+
+/* Keep the foreground color across every link state */
+.link-button:any-link {
+  color: var(--foreground-color);
+}
+
+.link-button[data-theme="linkedIn"] {
+  --background-color: var(--color-link-linkedin-background);
+  --foreground-color: var(--color-link-linkedin-foreground);
 }
 </style>
