@@ -1,29 +1,49 @@
-/* Styles applied only in `screen` mode */
+/* Shared container for the whole CV document */
+.cv {
+  --content-measure: 80ch;
+  max-width: var(--content-measure);
+  margin-inline: auto;
+  padding: clamp(1rem, 4vw, 2.75rem);
+}
+
+/* Screen: white CV sheet centered on a gray backdrop */
 @media screen {
-  /* Simulate an A4 printable area */
   :root {
     background-color: #333;
     color: white;
   }
-  div.layout {
+
+  .cv {
+    width: 100%;
+    margin-block: 1rem;
     background-color: white;
     color: black;
-
-    /* Center main content */
-    margin: 1rem auto;
   }
 }
 
-/* Specify that this CV should be printed as an A4 */
-@page {
-  size: A4;
-}
+/* Print: lay the CV out as A4 with automatic pagination */
+@media print {
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
 
-/* Styles applied inside the printable area */
-div.layout {
-  /* Create an A4 canvas that can grow when the content overflows */
-  --reference-width: 105ch;
-  width: var(--reference-width);
-  min-height: calc(var(--reference-width) * 1.414); /* A4 (1:1.414) */
-  padding: 1.5rem 2.75rem;
+  .cv {
+    max-width: none;
+    padding: 0;
+    color: black;
+  }
+
+  /* Keep entries and profile sections from splitting across sheets */
+  #work-experience > section,
+  #academic-background > section,
+  #professional-profile > section {
+    break-inside: avoid;
+  }
+
+  /* Keep headings attached to the content that follows */
+  h2,
+  h3 {
+    break-after: avoid;
+  }
 }

@@ -10,3 +10,10 @@ ul.two-columns {
 ul.two-columns li {
   flex: 0 0 50%;
 }
+
+/* Collapse to a single column on narrow screens */
+@media screen and (max-width: 48rem) {
+  ul.two-columns li {
+    flex: 0 0 100%;
+  }
+}

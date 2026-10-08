@@ -10,7 +10,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout>
   <ContactInfoObfuscated />
 
-  <div class="layout">
+  <article class="cv">
     <Header />
 
     <TimelineEntryList
@@ -22,9 +22,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       collectionKey={TimelineCollectionKey.AcademicBackground}
       sectionTitle="Formación Académica"
     />
-  </div>
 
-  <div class="layout">
     <ProfessionalProfileList />
-  </div>
+  </article>
 </BaseLayout>
