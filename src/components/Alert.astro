@@ -6,50 +6,23 @@ export enum AlertLevel {
   Error = "error",
 }
 
-interface AlertThemeDefinition {
-  backgroundColor: string;
-  borderColor: string;
-}
-
-const alertThemeMap: Record<AlertLevel, AlertThemeDefinition> = {
-  [AlertLevel.Info]: {
-    backgroundColor: "rgba(0, 123, 255, 0.3)",
-    borderColor: "#007bff",
-  },
-  [AlertLevel.Success]: {
-    backgroundColor: "rgba(0, 255, 0, 0.3)",
-    borderColor: "#28a745",
-  },
-  [AlertLevel.Warning]: {
-    backgroundColor: "rgba(255, 255, 0, 0.3)",
-    borderColor: "#ffcc00",
-  },
-
-  [AlertLevel.Error]: {
-    backgroundColor: "rgba(255, 0, 0, 0.3)",
-    borderColor: "#cc0000",
-  },
-};
-
 interface Props {
   level: AlertLevel;
   class?: string;
 }
 
 const { level, class: className } = Astro.props;
-
-const { backgroundColor, borderColor } = alertThemeMap[level];
 ---
 
 <aside class:list={[`alert-${level}`, className]}>
   <slot />
 </aside>
 
-<style define:vars={{ backgroundColor, borderColor }}>
+<style>
 aside {
-  /* Wrap content in a rounded box */
-  background-color: var(--backgroundColor);
-  border: 1px solid var(--borderColor);
+  /* Wrap content in a rounded box; colors come from the level class */
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 
@@ -63,6 +36,24 @@ aside {
   /* Center content and leave space inside the box */
   margin: 0 auto;
   padding: 1em;
+}
+
+/* Each level only sets the color variables the box applies */
+.alert-info {
+  --background-color: rgba(0, 123, 255, 0.3);
+  --border-color: #007bff;
+}
+.alert-success {
+  --background-color: rgba(0, 255, 0, 0.3);
+  --border-color: #28a745;
+}
+.alert-warning {
+  --background-color: rgba(255, 255, 0, 0.3);
+  --border-color: #ffcc00;
+}
+.alert-error {
+  --background-color: rgba(255, 0, 0, 0.3);
+  --border-color: #cc0000;
 }
 
 /* Each direct child will have the same margin inside the alert */
